@@ -1,0 +1,6 @@
+public/assets/css/
+public/assets/js/
+node_modules/
+dist/
+*/Thumbs.db
+.idea

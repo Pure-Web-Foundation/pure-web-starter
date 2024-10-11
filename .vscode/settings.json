@@ -1,0 +1,13 @@
+{
+  "liveServer.settings.host": "localhost",
+  "liveServer.settings.port": 9012,
+  "liveServer.settings.root": "/public",
+  "liveServer.settings.file": "index.html",
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/public/assets/css"
+    }
+  ]
+}

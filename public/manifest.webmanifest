@@ -1,0 +1,26 @@
+{
+  "short_name": "PWF",
+  "name": "Pure Web Starter",
+  "description": "",
+  "display": "standalone",
+  "orientation": "any",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/assets/img/ico-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/img/ico-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ],
+  
+  "start_url": "/?standalone=true",
+  "theme_color": "#e8e0d8",
+  "background_color": "#e8e0d8"
+}

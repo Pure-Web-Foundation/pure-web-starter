@@ -1,0 +1,28 @@
+{
+  "name": "pwf-starter",
+  "version": "1.0.0",
+  "displayName": "Pure Web Starter",
+  "description": "",
+  "scripts": {
+    "dev": "node esbuild-dev.js",
+    "build": "node esbuild-prd.js&tsc"
+  },
+  "dependencies": {
+    "esbuild": "^0.20.0",
+    "esbuild-sass-plugin": "^3.2.0",
+    "glob": "^11.0.0",
+    "lit": "^3.0.0",
+    "sass": "^1.77.1",
+    "typescript": "^5.4.5",
+    "urlpattern-polyfill": "^10.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.2.0",
+    "eslint": "^9.2.0",
+    "eslint-plugin-lit": "^1.12.0",
+    "eslint-plugin-wc": "^2.1.0",
+    "globals": "^15.2.0",
+    "pure-web": "^1.0.35"
+  },
+  "homepage": "https://github.com/mvneerven/pure-web-foundation#readme"
+}

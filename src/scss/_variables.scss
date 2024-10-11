@@ -1,0 +1,54 @@
+:root {
+  --color-bg: #333;
+  --color-bg-nuance: #555;
+  --color-fg: #efefef;
+  --color-fill: #aaa;
+  --color-h: #FEDB37;
+  --color-accent: var(--color-h);
+  --color-accent-opposite: color-contrast(var(--color-h) vs white, black);
+  --color-h-dimmed: #FEDB37bb;
+  --icon-fill-color: var(--color-h);
+  --gutter-small: 1rem;
+  --border-r: 1rem;
+  --radius-large: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    --max-width: unset;
+    --padding-normal: 10px;
+    --main-top-padding: 10px;
+    --body-margin-v: 0;
+    --body-margin-h: 0;
+    --app-height: 100%;
+    --app-rad: 0;
+    --padding-large: 20px;
+    --header-h: 60px;
+    --header-bg-pos: left 5% bottom 20%; //40% 25%;
+    --omnibox-margin-top: 0px;
+
+    &[data-scroll="down"] {
+      --header-h: 40px;
+      --omnibox-margin-top: 0px;
+    }
+  }
+}
+
+@media only screen and (min-width: 601px) {
+  :root {
+    --max-width: 1000px;
+    --padding-normal: 2rem;
+    --main-top-padding: 0px;
+    --body-margin-v: 2rem;
+    --body-margin-h: auto;
+    --app-height: calc(100vh - calc(var(--body-margin-v, 0) * 2));
+    --app-rad: 1rem;
+    --padding-large: 2rem;
+    --header-h: 100px;
+    --header-bg-pos: 50% 25%;
+    &[data-scroll="down"] {
+      --header-h: 50px;
+    }
+  }
+}
+
