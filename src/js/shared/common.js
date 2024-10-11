@@ -198,3 +198,65 @@ export function enQueue(fn) {
 export function parseHTML(html) {
   return new DOMParser().parseFromString(html, "text/html").body.childNodes;
 }
+
+/**
+ * Load a script.
+ * @param {string} url - URL or path to the script. Relative paths are
+ * relative to the HTML file that initiated script loading.
+ * @param {function} successCallback - Optional parameterless function that
+ * will be called when the script has loaded.
+ * @param {function} errorCallback - Optional function that will be called
+ * if loading the script fails, takes an error object as parameter.
+ * @public
+ */
+export function loadScript(url, successCallback, errorCallback) {
+  let mLoadedScripts = {},
+    mScriptLoadingCounter = 0,
+    mScriptsLoadedCallbacks = [];
+
+  // If script is already loaded call callback directly and return.
+  if (mLoadedScripts[url] == "loadingcomplete") {
+    successCallback && successCallback();
+    return;
+  }
+
+  // Add script to dictionary of loaded scripts.
+  mLoadedScripts[url] = "loadingstarted";
+  ++mScriptLoadingCounter;
+
+  // Create script tag.
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src = url;
+
+  // Bind the onload event.
+  script.onload = function () {
+    // Mark as loaded.
+    mLoadedScripts[url] = "loadingcomplete";
+    --mScriptLoadingCounter;
+
+    // Call success callback if given.
+    successCallback && successCallback();
+
+    // Call scripts loaded callbacks if this was the last script loaded.
+    if (0 == mScriptLoadingCounter) {
+      for (var i = 0; i < mScriptsLoadedCallbacks.length; ++i) {
+        var loadedCallback = mScriptsLoadedCallbacks[i];
+        loadedCallback && loadedCallback();
+      }
+
+      // Clear callbacks - should we do this???
+      mScriptsLoadedCallbacks = [];
+    }
+  };
+
+  // onerror fires for things like malformed URLs and 404's.
+  // If this function is called, the matching onload will not be called and
+  // scriptsLoaded will not fire.
+  script.onerror = function (error) {
+    errorCallback && errorCallback(error);
+  };
+
+  // Attaching the script tag to the document starts loading the script.
+  document.head.appendChild(script);
+}

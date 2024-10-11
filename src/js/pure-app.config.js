@@ -72,11 +72,12 @@ export const config = {
       // example of a catch-all route (every sub-path is a match)
       run: class PageAbout extends RoutePage {
         renderTitle() {
-          return "About!!!";
+          return "About this Project Starter";
         }
         renderContent() {
           if (location.pathname === "/about")
-            return html`<p>About this site</p>`;
+            return html`<mark-down src="/assets/md/readme.md"></mark-down>`;
+
           return html`<div>
             About this site - sub path: ${location.pathname}
           </div>`;

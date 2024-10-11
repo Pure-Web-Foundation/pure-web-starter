@@ -27,6 +27,12 @@ const config = {
       move: true,
       createPath: true,
     }),
+    copyPlugin({
+      from: './readme.md',
+      to: 'public/assets/md/readme.md',
+      move: false,
+      createPath: true,
+    }),
   ]
 };
 
