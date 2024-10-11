@@ -353,6 +353,9 @@ button {
       padding: 1rem;
       background-color: #444;
       text-decoration: none;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
 
       &:hover {
         filter: brightness(110%) saturate(120%);
